@@ -19,7 +19,7 @@ pygame.mixer.init()
 
 
 def make_sound():
-    pygame.mixer.music.load("emergency-alarm.mp3")
+    pygame.mixer.music.load("dist/emergency-alarm.mp3")
     set_volume = 0.01
     pygame.mixer.music.set_volume(set_volume)
     pygame.mixer.music.play(loops=0)
@@ -76,7 +76,7 @@ def count_down(count):
 window = Tk()
 window.title("Pomodoro")
 window.config(padx=100, pady=50, bg=YELLOW)
-image_file = PhotoImage(file='tomato.png')
+image_file = PhotoImage(file='dist/tomato.png')
 
 timer_label = Label(text='TIMER', font=(FONT_NAME, 30, 'bold'), fg=GREEN, highlightthickness=0, bg=YELLOW)
 timer_label.grid(column=1, row=0)
