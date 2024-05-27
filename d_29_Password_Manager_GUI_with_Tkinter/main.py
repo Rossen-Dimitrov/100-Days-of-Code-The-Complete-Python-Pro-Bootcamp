@@ -2,6 +2,7 @@ from tkinter import Tk, PhotoImage, Canvas, Label, Entry, Button
 from tkinter import messagebox
 from random import randint, shuffle, choice
 from pyperclip import copy
+import json
 
 FONT_NAME = "Arial"
 
@@ -34,21 +35,34 @@ def generate_pass():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
     web_site = website_entry.get()
-    user = user_entry.get()
+    email = user_entry.get()
     password = password_entry.get()
+    new_entry = {web_site: {'email': email, 'password': password}}
 
-    if len(web_site) == 0 or len(user) == 0 or len(password) == 0:
+    if len(web_site) == 0 or len(email) == 0 or len(password) == 0:
         messagebox.showerror(title='Error', message='Empty fields are not allowed')
     else:
         ok = messagebox.askokcancel(title=web_site,
                                     message=f'This are the details entered:\n'
-                                            f'Email: {user}\n'
+                                            f'Email: {email}\n'
                                             f'Password: {password}'
                                     )
         if ok:
-            with open('passwords.txt', 'a') as file:
-                new_entry = f"{web_site}|{user}|{password}\n"
-                file.write(new_entry)
+            try:
+                with open('passwords.json', 'r') as file:
+                    # Reading old data
+                    data = json.load(file)
+
+            except FileNotFoundError:
+                with open('passwords.json', 'w') as file:
+                    json.dump(new_entry, file, indent=4)
+            else:
+                # Updating old data with new data
+                data.update(new_entry)
+                with open('passwords.json', 'w') as file:
+                    # Saving updated data
+                    json.dump(data, file, indent=4)
+            finally:
                 website_entry.delete(0, 'end')
                 password_entry.delete(0, 'end')
 
