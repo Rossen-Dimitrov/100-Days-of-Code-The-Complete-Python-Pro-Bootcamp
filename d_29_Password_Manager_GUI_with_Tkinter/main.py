@@ -67,6 +67,25 @@ def save():
                 password_entry.delete(0, 'end')
 
 
+# ----------------------------  Search  ------------------------------- #
+def search():
+    web_site = website_entry.get()
+    try:
+        with open('passwords.json', 'r') as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showinfo(title='DB Error', message='No saved passwords')
+    else:
+        if web_site in data:
+            messagebox.showinfo(
+                title=web_site,
+                message=f'This are the details entered:\n'
+                        f'Email: {data[web_site]["email"]}\n'
+                        f'Password: {data[web_site]["password"]}')
+        else:
+            messagebox.showinfo(title='Error', message=f'No such entry {web_site}')
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
@@ -90,8 +109,8 @@ password_label = Label(text='Password:', font=FONT_NAME)
 password_label.grid(row=3, column=0)
 
 # Entries
-website_entry = Entry(width=59)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=34)
+website_entry.grid(row=1, column=1)
 website_entry.focus()
 user_entry = Entry(width=59)
 user_entry.grid(row=2, column=1, columnspan=2)
@@ -101,6 +120,9 @@ password_entry.grid(row=3, column=1)
 password_entry.config()
 
 # Buttons
+search_btn = Button(text='Search', font=FONT_NAME, width=16, command=search)
+search_btn.grid(row=1, column=2)
+
 password_gen_btn = Button(text='Generate Password', font=FONT_NAME, command=generate_pass)
 password_gen_btn.grid(row=3, column=2)
 

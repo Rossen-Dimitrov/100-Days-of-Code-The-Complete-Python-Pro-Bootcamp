@@ -40,6 +40,8 @@ def reset_timer():
 
 def start_timer():
     global repeats
+    if repeats > 0:
+        reset_timer()
     repeats += 1
 
     if repeats % 8 == 0:
