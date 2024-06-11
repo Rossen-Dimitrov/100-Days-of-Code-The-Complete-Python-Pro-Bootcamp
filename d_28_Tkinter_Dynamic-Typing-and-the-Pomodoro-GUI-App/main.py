@@ -35,13 +35,17 @@ def reset_timer():
     global repeats
     repeats = 0
 
+
 # ---------------------------- TIMER MECHANISM ------------------------------- #
+def start_program():
+    if repeats > 0:
+        reset_timer()
+    start_timer()
 
 
 def start_timer():
     global repeats
-    if repeats > 0:
-        reset_timer()
+
     repeats += 1
 
     if repeats % 8 == 0:
@@ -80,7 +84,6 @@ window = Tk()
 window.title("Pomodoro")
 window.config(padx=100, pady=50, bg=YELLOW)
 
-
 image_file = PhotoImage(file='tomato.png')
 
 timer_label = Label(text='TIMER', font=(FONT_NAME, 30, 'bold'), fg=GREEN, highlightthickness=0, bg=YELLOW)
@@ -91,7 +94,7 @@ canvas.create_image(100, 110, image=image_file)
 timer_text = canvas.create_text(107, 132, text='00:00', font=(FONT_NAME, 30, 'bold'), fill='white')
 canvas.grid(column=1, row=1)
 
-start_btn = Button(text='START', command=start_timer, font=(FONT_NAME, 20, 'bold'), fg=GREEN_BTN)
+start_btn = Button(text='START', command=start_program, font=(FONT_NAME, 20, 'bold'), fg=GREEN_BTN)
 start_btn.grid(column=0, row=2)
 
 reset_btn = Button(text='RESET', command=reset_timer, font=(FONT_NAME, 20, 'bold'), fg=RED)
