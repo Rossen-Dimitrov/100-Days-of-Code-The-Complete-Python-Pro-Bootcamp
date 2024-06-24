@@ -12,7 +12,7 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 repeats = 0
-timer = None
+flip_timer = None
 
 # ---------------------------- AUDIO ------------------------------- #
 pygame.mixer.init()
@@ -28,7 +28,7 @@ def make_sound():
 # ---------------------------- TIMER RESET ------------------------------- #
 
 def reset_timer():
-    window.after_cancel(timer)
+    window.after_cancel(flip_timer)
     canvas.itemconfig(timer_text, text="00:00")
     timer_label.config(text="Timer", fg=GREEN)
     check_marks.config(text="")
@@ -68,7 +68,7 @@ def count_down(count):
     seconds = count % 60
 
     canvas.itemconfig(timer_text, text=f"{minutes:02d}:{seconds:02d}")
-    global timer
+    global flip_timer
 
     if count > 0:
         timer = window.after(1000, count_down, count - 1)
