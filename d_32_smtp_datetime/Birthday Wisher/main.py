@@ -6,7 +6,7 @@ import os
 
 
 def send_mail(email_address, message):
-    my_email = "xxxxxxxxxxx@gmail.com"
+    my_email = "@gmail.com"
     password = "xxxxxxxxxxx"
 
     with smtplib.SMTP("smtp.gmail.com") as connection:
