@@ -25,3 +25,5 @@ with open("quotes.txt") as data:
 
 if day_of_week == 1:
     send_mail('xxxxxxxxxxx@abv.bg', quote)
+
+

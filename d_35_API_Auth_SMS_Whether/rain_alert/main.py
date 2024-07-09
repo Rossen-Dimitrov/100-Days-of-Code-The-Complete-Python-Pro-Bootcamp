@@ -1,9 +1,15 @@
 import requests
+import os
+
+MY_EMAIL = os.getenv("MY_GMAIL")
+EMAIL_PASS = os.environ.get("MY_GMAIL_KEY")
+OPEN_WEATHER_KEY = os.environ["OPEN_WEATHER_KEY"]
+
 
 PARAMS = {
     'lat': 42.69,
     'lon': 23.32,
-    'appid': "10a8c8d9762dfe36266142aee6d47ca1",
+    'appid': OPEN_WEATHER_KEY,
     'units': 'metric',
     'cnt': 4
 }
