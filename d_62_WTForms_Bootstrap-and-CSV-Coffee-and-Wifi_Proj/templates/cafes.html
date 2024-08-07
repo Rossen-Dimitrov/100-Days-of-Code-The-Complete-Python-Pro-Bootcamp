@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}
+Restaurants
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1>All Cafes</h1>
+
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">{{ cafes[0][0] }}</th>
+                    <th scope="col">{{ cafes[0][1] }}</th>
+                    <th scope="col">{{ cafes[0][2] }}</th>
+                    <th scope="col">{{ cafes[0][3] }}</th>
+                    <th scope="col">{{ cafes[0][4] }}</th>
+                    <th scope="col">{{ cafes[0][5] }}</th>
+                    <th scope="col">{{ cafes[0][6] }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for cafe in range(1, cafes|length) %}
+                <tr>
+                    <td>{{ cafes[cafe][0] }}</td>
+                    <td><a href="{{ cafes[cafe][1] }}" target=”_blank”>Maps Link</a> </td>
+                    <td>{{ cafes[cafe][2] }}</td>
+                    <td>{{ cafes[cafe][3] }}</td>
+                    <td>{{ cafes[cafe][4] }}</td>
+                    <td>{{ cafes[cafe][5] }}</td>
+                    <td>{{ cafes[cafe][6] }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
