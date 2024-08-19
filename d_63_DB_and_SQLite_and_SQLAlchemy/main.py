@@ -27,6 +27,9 @@ class Book(db.Model):
         return f'<Book {self.title}>'
 
 
+
+
+
 with app.app_context():
     db.create_all()
 
