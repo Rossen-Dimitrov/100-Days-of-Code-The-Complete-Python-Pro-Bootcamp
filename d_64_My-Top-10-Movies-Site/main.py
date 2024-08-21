@@ -95,7 +95,7 @@ with app.app_context():
 
 @app.route("/")
 def home():
-    result = db.session.execute(db.select(Movie).order_by(Movie.rating))
+    result = db.session.execute(db.select(Movie).order_by(Movie.ranking))
     all_movies = result.scalars().all() # convert ScalarResult to Python List
 
     # all_movies = db.session.execute(db.select(Movie).order_by(Movie.ranking)).scalars()

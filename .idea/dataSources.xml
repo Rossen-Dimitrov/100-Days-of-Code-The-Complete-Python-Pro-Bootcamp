@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="new-books-collection" uuid="dd7bd61e-dd46-4cbb-a6bc-43de25aa7380">
+    <data-source source="LOCAL" name="cafes" uuid="ce65b086-4551-43c9-9d15-5f18b33adc36">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\GitRepos\100 Days of Code The Complete Python Pro Bootcamp\d_64_My-Top-10-Movies-Site\instance\new-books-collection.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\GitRepos\100 Days of Code The Complete Python Pro Bootcamp\d_66_ API-With-RESTfull-Routing\instance\cafes.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
