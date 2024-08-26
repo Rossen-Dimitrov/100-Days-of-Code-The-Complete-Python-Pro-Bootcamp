@@ -55,8 +55,8 @@ def register():
         user = db.session.execute(db.select(User).where(User.email == email)).scalar()
         if user:
             flash("You've already signed up with that email, log in instead!")
-            return render_template('login.html'
-                                   )
+            return render_template('login.html')
+
         hash_and_salted_password = (generate_password_hash(
             request.form.get('password'),
             method='pbkdf2:sha256:600000',

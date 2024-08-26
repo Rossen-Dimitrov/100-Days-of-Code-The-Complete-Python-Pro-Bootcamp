@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="users" uuid="47f8b45a-fb04-45c9-9f94-f33e0de347ac">
+    <data-source source="LOCAL" name="posts" uuid="d41f7199-723f-4d79-814e-004d6082bb8a">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\GitRepos\100 Days of Code The Complete Python Pro Bootcamp\d_68_Authorization\instance\users.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\GitRepos\100 Days of Code The Complete Python Pro Bootcamp\d_69-Adding-Users-Blog-Project\instance\posts.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
